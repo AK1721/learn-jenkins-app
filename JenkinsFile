@@ -4,9 +4,14 @@ pipeline{
 
     stages{
         stage("test"){
+            agent {
+                docker {
+                    image 'node:alpine'
+                }
+            }
             steps{
                 sh '''
-                    echo "hello world"
+                    node --version
                 '''
             }   
         }
